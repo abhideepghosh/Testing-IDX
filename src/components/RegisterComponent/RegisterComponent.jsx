@@ -5,6 +5,10 @@ const RegisterComponent = () => {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (localStorage.getItem(username)) {
+      alert("Username already exists!");
+      return;
+    }
     localStorage.setItem(
       username,
       JSON.stringify({
