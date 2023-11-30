@@ -1,14 +1,27 @@
+// Import the necessary modules.
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+// Create a function that is used to register a user.
 const RegisterComponent = () => {
+  // Get the navigate function from the useNavigate hook.
   const navigate = useNavigate();
+
+  // Handle the submit event of the form.
   const handleSubmit = (e) => {
+    // Prevent the default action of the event.
     e.preventDefault();
+
+    // Check if the username already exists.
     if (localStorage.getItem(username)) {
+      // Show an alert message.
       alert("Username already exists!");
+
+      // Return from the function.
       return;
     }
+
+    // Store the user's data in local storage.
     localStorage.setItem(
       username,
       JSON.stringify({
@@ -16,14 +29,20 @@ const RegisterComponent = () => {
         password,
       })
     );
+
     // For testing whether the data is stored or not
     // console.log(JSON.parse(localStorage.getItem(username)));
+
+    // Navigate to the login page.
     navigate("/");
   };
 
+  // Create state variables for the user's name, username, and password.
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  // Return the JSX code for the register component.
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>

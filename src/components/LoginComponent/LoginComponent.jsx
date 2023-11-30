@@ -1,20 +1,31 @@
+// Import the necessary modules.
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+// Create a function that is used to login a user.
 const LoginComponent = () => {
   const navigate = useNavigate();
   const handleUsername = (e) => setUsername(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
+
+  // Handle the submit event of the form.
   const handleSubmit = (e) => {
+    // Prevent the default action of the event.
     e.preventDefault();
     const userDetails = JSON.parse(localStorage.getItem(username));
+
+    // Check if the user's data exists.
     if (userDetails) {
+      // Check if the username and password are valid.
+      // Check if the user's password matches the password in local storage.
       if (userDetails.password === password) {
+        // Navigate to the dashboard page.
         navigate("/dashboard");
-      } else alert("Invalid Credentials");
-    } else alert("Invalid Credentials");
+      } else alert("Invalid Credentials"); // Show an error message.
+    } else alert("Invalid Credentials"); // Show an error message.
   };
 
+  // Get the user's credentials from the form.
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   return (
