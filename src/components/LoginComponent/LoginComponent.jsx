@@ -30,6 +30,7 @@ const LoginComponent = () => {
   const [password, setPassword] = useState("");
   return (
     <div className="container">
+      <h2>Login Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="emailInput" className="form-label">

@@ -45,6 +45,7 @@ const RegisterComponent = () => {
   // Return the JSX code for the register component.
   return (
     <div className="container">
+      <h2>Registration Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -55,8 +56,8 @@ const RegisterComponent = () => {
             onChange={(e) => setName(e.target.value)}
             type="text"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            id="nameInput"
+            aria-describedby="nameHelp"
             minLength={3}
           />
         </div>
