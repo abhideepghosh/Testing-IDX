@@ -87,6 +87,7 @@ const RegisterComponent = () => {
             type="password"
             className="form-control"
             id="exampleInputPassword1"
+            minLength={6}
           />
           <div id="emailHelp" className="form-text">
             Already have an account? <Link to="/">Login</Link>

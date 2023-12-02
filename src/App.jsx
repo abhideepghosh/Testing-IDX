@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         element: <RegisterComponent />,
       },
       {
-        path: "/dashboard",
+        path: "/dashboard/:name",
         element: <DashboardComponent />,
       },
     ],

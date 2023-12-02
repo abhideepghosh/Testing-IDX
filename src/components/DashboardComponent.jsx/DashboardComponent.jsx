@@ -1,7 +1,30 @@
-import React from "react";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const DashboardComponent = () => {
-  return <div>DashboardComponent</div>;
+  const { name } = useParams();
+  const username = sessionStorage.getItem(name);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    sessionStorage.clear();
+    navigate("/");
+  };
+
+  useEffect(() => {
+    if (!username) navigate("/");
+  }, []);
+
+  return (
+    <div className="container">
+      <p>
+        Hello {name}, your username is {username}
+      </p>
+      <button onClick={handleLogout} type="button" class="btn btn-primary">
+        Logout
+      </button>
+    </div>
+  );
 };
 
 export default DashboardComponent;

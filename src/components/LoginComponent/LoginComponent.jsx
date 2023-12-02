@@ -4,6 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 // Create a function that is used to login a user.
 const LoginComponent = () => {
+  // Get the user's credentials from the form.
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
   const handleUsername = (e) => setUsername(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -20,14 +24,12 @@ const LoginComponent = () => {
       // Check if the user's password matches the password in local storage.
       if (userDetails.password === password) {
         // Navigate to the dashboard page.
-        navigate("/dashboard");
+        sessionStorage.setItem(userDetails.name, username);
+        navigate(`/dashboard/${userDetails.name}`);
       } else alert("Invalid Credentials"); // Show an error message.
     } else alert("Invalid Credentials"); // Show an error message.
   };
 
-  // Get the user's credentials from the form.
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   return (
     <div className="container">
       <h2>Login Form</h2>
