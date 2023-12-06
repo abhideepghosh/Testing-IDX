@@ -1,5 +1,5 @@
 // Import the necessary modules.
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 // Create a function that is used to login a user.
@@ -29,6 +29,11 @@ const LoginComponent = () => {
       } else alert("Invalid Credentials"); // Show an error message.
     } else alert("Invalid Credentials"); // Show an error message.
   };
+
+  useEffect(() => {
+    if (sessionStorage.length > 0)
+      navigate(`/dashboard/${Object.keys(sessionStorage)[0]}`);
+  }, []);
 
   return (
     <div className="container">

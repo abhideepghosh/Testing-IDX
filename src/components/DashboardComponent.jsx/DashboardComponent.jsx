@@ -20,7 +20,7 @@ const DashboardComponent = () => {
       <p>
         Hello {name}, your username is {username}
       </p>
-      <button onClick={handleLogout} type="button" class="btn btn-primary">
+      <button onClick={handleLogout} type="button" className="btn btn-primary">
         Logout
       </button>
     </div>
